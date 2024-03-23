@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:pdf/widgets.dart' as pw;
 
 class Display extends StatelessWidget {
   const Display(
@@ -293,6 +295,12 @@ class Display extends StatelessWidget {
                             fontWeight: FontWeight.w400, fontSize: 16),
                       ),
                     ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // generatePDF(context);
+                      },
+                      child: Text("Save"),
+                    )
                   ],
                 ),
               )
@@ -303,3 +311,43 @@ class Display extends StatelessWidget {
     );
   }
 }
+
+// Future<void> _generateInvoice(BuildContext context) async {
+//     final pdf = pw.Document();
+
+//     // Create a PDF page
+//     pdf.addPage(pw.Page(
+//       build: (pw.Context context) {
+//         return pw.Center(
+//           child: TeachersPdf(),
+//         );
+//       },
+//     ));
+
+//     // Get the directory for saving the PDF file
+//     final directory = await getApplicationDocumentsDirectory();
+//     final filePath =
+//         '${directory.path}/($passDate)TeachersAttendanceReport.pdf';
+//     final file = File(filePath);
+
+//     // Save the PDF file
+//     await file.writeAsBytes(await pdf.save());
+
+//     // Show a dialog to indicate the PDF is saved
+//     showDialog(
+//       context: context,
+//       builder: (context) => AlertDialog(
+//         title: Text('Teachers Attendance report Generated'),
+//         content:
+//             Text('The attendance report of teachers is saved at: $filePath'),
+//         actions: [
+//           TextButton(
+//             onPressed: () => Navigator.pop(context),
+//             child: Text('OK'),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+
+
